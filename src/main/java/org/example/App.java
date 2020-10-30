@@ -16,7 +16,7 @@ public class App {
         //Lendo os dados da Carga.csv
         Scanner leituraCarga = new Scanner(new File("src/main/java/org/example/Carga.csv"));
 
-        // While para fazer diversos request a URL
+        // While-loop para fazer diversos request a URL
         while (leituraCarga.hasNextLine()) {
 
             // Pegando linha por linha da carga
@@ -36,7 +36,6 @@ public class App {
             String CF04 = linhaArray[7];
             String CF05 = linhaArray[8];
 
-            System.out.println(Nome);
             // Corpo da ação que vamos realizar no IDM
             String XML = String.format("<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:wsdl=\"http://tews6/wsdl\">\n" +
                     "        <soapenv:Header/>\n" +
@@ -75,7 +74,6 @@ public class App {
                     "        </wsdl:CreateProvisioningRole>\n" +
                     "        </soapenv:Body>\n" +
                     "    </soapenv:Envelope>",Nome, Desc, Comments, Depart, CF01, CF02, CF03, CF04, CF05);
-            System.out.println(XML);
 
             // Client, Request e Send da biblioteca
             HttpClient client = HttpClient.newHttpClient();
@@ -85,6 +83,9 @@ public class App {
                     .POST(HttpRequest.BodyPublishers.ofString(XML))
                     .build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            
+            // "Feedback"
+            System.out.println(String.format("Provisioning Role %s criada com sucesso", Nome));
         }
     }
 }
