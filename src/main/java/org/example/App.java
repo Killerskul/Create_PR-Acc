@@ -13,6 +13,10 @@ public class App {
     private static String IDMUrl = "http://192.168.15.6:8080/iam/im/TEWS6/identityEnv";
 
     public static void main ( String[] args ) throws IOException, InterruptedException {
+        // Realizando a criação dos Account Templates
+        AccountTemplate accountTemplate = new AccountTemplate();
+        accountTemplate.createAcc();
+
         //Lendo os dados da Carga.csv
         Scanner leituraCarga = new Scanner(new File("src/main/java/org/example/Carga.csv"));
 
@@ -35,6 +39,7 @@ public class App {
             String CF03 = linhaArray[6];
             String CF04 = linhaArray[7];
             String CF05 = linhaArray[8];
+            String nomeAcc = linhaArray[0] + linhaArray[1];
 
             // Corpo da ação que vamos realizar no IDM
             String XML = String.format("<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:wsdl=\"http://tews6/wsdl\">\n" +
@@ -59,7 +64,7 @@ public class App {
                     "            <wsdl:CreateProvisioningRoleAccountTemplatesTab>\n" +
                     "                <wsdl:Policies>\n" +
                     "                    <wsdl:add index=\"?\">\n" +
-                    "                        <wsdl:Name>Acc para carga PR</wsdl:Name>\n" +
+                    "                        <wsdl:Name>%s</wsdl:Name>\n" +
                     "                        <wsdl:EndpointType>ActiveDirectory</wsdl:EndpointType>\n" +
                     "                    </wsdl:add>\n" +
                     "                </wsdl:Policies>\n" +
@@ -73,7 +78,7 @@ public class App {
                     "            </wsdl:CreateProvisioningRoleOwnersTab>\n" +
                     "        </wsdl:CreateProvisioningRole>\n" +
                     "        </soapenv:Body>\n" +
-                    "    </soapenv:Envelope>",Nome, Desc, Comments, Depart, CF01, CF02, CF03, CF04, CF05);
+                    "    </soapenv:Envelope>",Nome, Desc, Comments, Depart, CF01, CF02, CF03, CF04, CF05, nomeAcc);
 
             // Client, Request e Send da biblioteca
             HttpClient client = HttpClient.newHttpClient();
@@ -83,9 +88,9 @@ public class App {
                     .POST(HttpRequest.BodyPublishers.ofString(XML))
                     .build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            
+
             // "Feedback"
-            System.out.println(String.format("Provisioning Role %s criada com sucesso", Nome));
+            System.out.println(String.format(response.body()));
         }
     }
 }
