@@ -12,7 +12,7 @@ public class ProvisioningRole {
 
     public void createPR () throws IOException, InterruptedException {
         // Definindo uma string statica para a URL
-        String IDMUrl = "http://192.168.15.6:8080/iam/im/TEWS6/identityEnv";
+        String IDMUrl = "";
 
         //Lendo os dados da Carga.csv
         Scanner leituraCarga = new Scanner(new File("src/main/java/org/example/Carga.csv"));
@@ -43,8 +43,8 @@ public class ProvisioningRole {
                     "        <soapenv:Header/>\n" +
                     "        <soapenv:Body>\n" +
                     "            <wsdl:TaskContext>\n" +
-                    "            <wsdl:admin_id>imadmin</wsdl:admin_id>\n" +
-                    "            <wsdl:admin_password>Igor961881031</wsdl:admin_password>\n" +
+                    "            <wsdl:admin_id>~/wsdl:admin_id>\n" +
+                    "            <wsdl:admin_password>~</wsdl:admin_password>\n" +
                     "            </wsdl:TaskContext>\n" +
                     "        <wsdl:CreateProvisioningRole>\n" +
                     "            <wsdl:CreateProvisioningRoleProfileTab>\n" +
