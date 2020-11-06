@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class ProvisioningRole {
 
     public void createPR () throws IOException, InterruptedException {
-        // Definindo uma string statica para a URL
+        // Definindo uma string para a URL
         String IDMUrl = "";
 
         //Lendo os dados da Carga.csv
