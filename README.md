@@ -9,11 +9,13 @@ O XML enviado pode e deve ser modificado.
 
 O Script vem com os seguintes campos em branco, onde é necessário o preenchimento dos dados.
 
-- <'wsdl:admin_id> Credenciais do Usuário </wsdl:admin_id>
+- <'wsdl:admin_id> **Credenciais do Usuário** </wsdl:admin_id>
 
 
-- <'wsdl:admin_password> Credenciais do Usuário </wsdl:admin_password> 
+- <'wsdl:admin_password> **Credenciais do Usuário** </wsdl:admin_password> 
 
 - String IDMUrl = "http://Host_IDM:8080/iam/im/TEWS6/identityEnv";
 
-![Teste](https://user-images.githubusercontent.com/69530029/98127057-04894f00-1e95-11eb-8d2c-f93126526463.gif)
+Enjoy it!
+
+![giphy](https://user-images.githubusercontent.com/69530029/98309934-84eda400-1faa-11eb-8cf3-2537d3de0703.gif)
