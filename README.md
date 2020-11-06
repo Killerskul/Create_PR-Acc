@@ -7,7 +7,7 @@ O XML enviado pode e deve ser modificado.
 
 **Atenção**
 
-O Script vem com os seguintes campos em branco, onde é necessário o preenchimento dos dados.
+O Script vem com os seguintes campos em branco, onde é necessário o preenchimento dos dados em ambas as classes do projeto.
 
 - <'wsdl:admin_id> **Credenciais do Usuário** </wsdl:admin_id>
 
@@ -18,4 +18,4 @@ O Script vem com os seguintes campos em branco, onde é necessário o preenchime
 
 Enjoy it!
 
-![giphy](https://user-images.githubusercontent.com/69530029/98309934-84eda400-1faa-11eb-8cf3-2537d3de0703.gif)
+![giphy (1)](https://user-images.githubusercontent.com/69530029/98310055-d5650180-1faa-11eb-8c2e-b77f907dbc10.gif)
